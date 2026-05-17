@@ -1,0 +1,88 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
+
+/* Root variables for vibrant white/light and night-light (dark) modes */
+:root {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: #e2e8f0;
+  --card-bg: #ffffff;
+  --amber-accent: #e28700;
+}
+
+.dark {
+  --bg-primary: #0b1329;
+  --bg-secondary: #111c44;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: #1e293b;
+  --card-bg: #1b254b;
+  --amber-accent: #f59e0b;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+/* Custom Light/Dark Theme Utility Classes */
+.custom-bg-primary { background-color: var(--bg-primary); }
+.custom-bg-secondary { background-color: var(--bg-secondary); }
+.custom-text-primary { color: var(--text-primary); }
+.custom-text-secondary { color: var(--text-secondary); }
+.custom-border { border-color: var(--border-color); }
+.custom-card {
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+
+.custom-card-hover:hover {
+  border-color: var(--amber-accent);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.05);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-spin-slow {
+  animation: spinSlow 15s linear infinite;
+}
